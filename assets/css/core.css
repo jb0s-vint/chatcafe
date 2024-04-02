@@ -1,0 +1,220 @@
+@import url('https://fonts.googleapis.com/css2?family=Gabarito:wght@400..900&display=swap');
+
+/* Color palette */
+:root {
+
+    /* Basic colors */
+    --background-primary-color: #201c18;
+    --background-secondary-color: #2b2724;
+    --middleground-color: #302c29;
+    --foreground-color: #fafafa;
+    --border-color: #383028e6;
+    --hyperlink-color: #887157;
+
+    /* InputField colors */
+    --inputfield-color: #332d27;
+    --inputfield-hover-color: #3b342d;
+    --inputfield-focus-color: #3f362d;
+
+    /* Button colors */
+    --button-color: #53483d;
+    --button-hover-color: #4d4238;
+    --button-focus-color: #443a31;
+}
+
+body {
+    /* Reset annoying Browser-injected CSS */
+    margin: 0;
+    padding: 0;
+    
+    /* Make body take up whole page */
+    width: 100vw;
+    height: 100vh;
+    vertical-align: baseline;
+    border: 0;
+
+    /* Font */
+    font-family: "Gabarito", sans-serif;
+    font-optical-sizing: auto;
+    color: var(--foreground-color);
+    line-height: 1.1;
+}
+
+/* Lists */
+ul {
+    list-style-type: disc;
+    margin-left: 15px;
+}
+
+/* Font styles */
+i {
+    font-style: italic;
+}
+b {
+    font-weight: bold;
+}
+
+/* Headers */
+h1 {
+    font-size: 28px;
+    font-weight: bold;
+}
+h2 {
+    font-size: 23px;
+    font-weight: bold;
+}
+h3 {
+    font-size: 16px;
+    font-weight: normal;
+    opacity: 0.6;
+}
+
+/* Modals */
+.modal {
+    border: 1px solid var(--border-color);
+    background: var(--background-primary-color);
+    box-shadow: 0px 0px 15px #0000007a;
+    padding: 20px 25px;
+    border-radius: 7px;
+}
+.modal h2 {
+    margin-bottom: 5px;
+}
+.modal h2 img {
+    width: 20px;
+
+    /* Dirty hack to make the icon and text line up better */
+    margin: -2px;
+}
+
+/* Forms */
+form {
+    display: flex;
+    flex-direction: column;
+    margin: 20px 0px 0px 0px;
+    flex-grow: 2;
+}
+form label {
+    opacity: 0.9;
+    font-weight: 600;
+    font-size: 15px;
+    text-transform: uppercase;
+
+    /* Add space between label and input */
+    margin-bottom: 5px;
+}
+
+/* Inputs */
+input {
+    background-color: var(--inputfield-color);
+    color: var(--foreground-color);
+    border: 1px solid var(--border-color);
+    font-size: 14px;
+
+    /* Airy and round spacing */
+    padding: 8px 5px;
+    border-radius: 7px;
+
+    /* Add space before the next input */
+    margin-bottom: 15px;
+
+    /* Slow transition back to normal color */
+    transition: .4s;
+}
+input:hover {
+    background-color: var(--inputfield-hover-color);
+
+    /* Fast transition to hover color */
+    transition: .2s;
+}
+input:focus {
+    background-color: var(--inputfield-focus-color);
+
+    /* Fast transition to focus color */
+    transition: .2s;
+}
+
+/* Buttons */
+button {
+    background-color: var(--button-color);
+    color: var(--foreground-color);
+    font-size: 15px;
+
+    /* Disable default border */
+    border: none;
+
+    /* Airy and round spacing */
+    padding: 8px 14px;
+    border-radius: 7px;
+
+    /* Fast transition to hover color */
+    transition: .4s;
+}
+button:hover {
+    background-color: var(--button-hover-color);
+    cursor: pointer;
+
+    /* Fast transition to hover color */
+    transition: .2s;
+}
+button:active {
+    background-color: var(--button-focus-color);
+    cursor: pointer;
+
+    /* Fast transition to focus color */
+    transition: .2s;
+}
+
+/* Hyperlinks */
+a {
+    color: var(--hyperlink-color);
+    text-decoration: underline;
+}
+
+/* Modals */
+.modal-container {
+    position: absolute;
+    background-color: rgba(0, 0, 0, 0.5);
+    backdrop-filter: blur(2px);
+    width: 100vw;
+    height: 100vh;
+    transition: .2s;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    /* Hide by default until .visible class is applied */
+    opacity: 0;
+    pointer-events: none;
+    user-select: none;
+    transition: .2s;
+}
+.modal-container.visible {
+    opacity: 1;
+    pointer-events: all;
+    user-select: auto;
+    transition: .15s;
+}
+.modal-container.visible .modal {
+    transform: scale(1);
+    transition: .15s;
+}
+.modal-container .modal {
+    /* Hide modals inside a modal container until .visible class is added */
+    transform: scale(0.8);
+    transition: .2s;
+}
+.modal .action-bar {
+    display: flex;
+
+    /* Align children in a row with a 15px gap */ 
+    flex-direction: row;
+    gap: 15px;
+
+    /* Align children to right and center vertically */
+    justify-content: flex-end;
+    align-items: center;
+
+    /* Spacing between modal and action bar */
+    margin-top: 12px;
+}

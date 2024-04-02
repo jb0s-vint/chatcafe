@@ -1,0 +1,253 @@
+body {
+    display: flex;
+    flex-direction: row;
+}
+
+/* Hack to make icon svgs appear white */
+.invert {
+    filter: invert();
+
+    /* The selection color will be inverted too which is ugly */
+    user-select: none;
+}
+
+/* User avatar */
+.avatar {
+    width: 40px;
+    height: 40px;
+    overflow: hidden;
+    background: var(--hyperlink-color);
+    border-radius: 25%;
+}
+.avatar img {
+    width: 35px;
+    height: 35px;
+    margin-top: 7px;
+    margin-left: 3px;
+
+    /* Hack to make the user icon appear brown */
+    opacity: 0.4;
+}
+
+/* Sidebar navbar */
+.sidebar {
+    width: 75px;
+    background: var(--background-primary-color);
+    padding: 15px 0;
+    display: flex;
+    flex-direction: column;
+    
+    /* Horizontally center but spread out vertically */
+    justify-content: space-between;
+    align-items: center;
+    
+    /* Border on the right */
+    border-right: 1px solid var(--border-color);
+}
+.sidebar .logo {
+    /* Coffee cup icon in the sidebar */
+    width: 40px;
+    height: 40px;
+}
+.sidebar .nav {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 5px;
+}
+.sidebar .nav button {
+    width: 40px;
+    height: 40px;
+    font-size: 19px;
+    padding: 0;
+
+    /* Unless the tab this button belongs to is active, the button is slightly transparent */
+    opacity: .65;
+}
+.sidebar .nav button img {
+    width: 20px;
+    height: 20px;
+    margin-top: 5px;
+}
+.sidebar .nav button.active {
+    /* The tab this button belongs to is active, make button fully opaque */
+    opacity: 1;
+}
+
+/* Main page contents */
+.main {
+    flex-grow: 2;
+    background: var(--middleground-color);
+}
+
+/* Tab switching */
+.tab {
+    width: 100%;
+    height: 100%;
+    display: none;
+}
+.tab.active {
+    display: flex;
+}
+
+/* Chat Tab -- Conversation list */
+.tab.chat .conversation-list {
+    background: var(--background-secondary-color);
+    width: 270px;
+
+    /* Make children grow horizontally */
+    display: flex;
+    flex-direction: column;
+
+    /* Border on the right */
+    border-right: 1px solid var(--border-color);
+}
+.tab.chat .conversation-list .conversation {
+    display: flex;
+    padding: 10px;
+
+    /* Horizontally layout and vertically center children */
+    flex-direction: row;
+    align-items: center;
+    gap: 10px;
+
+    /* Border at the bottom to separate from other conversations */
+    border-bottom: 1px solid var(--border-color);
+}
+.tab.chat .conversation-list .conversation:hover {
+    /* Special highlight when hovering over conversation */
+    background-color: var(--button-hover-color);
+    cursor: pointer;
+}
+
+/* Chat Tab -- Friend Finder */
+.tab.chat .conversation-list .friend-finder {
+    display: flex;
+
+    /* Horizontal layout */
+    flex-direction: row;
+    gap: 5px;
+    padding: 7px;
+
+    /* Border at the bottom to separate from the conversations below */
+    border-bottom: 1px solid var(--border-color);
+}
+.tab.chat .conversation-list .friend-finder input {
+    /* Make input field grow to fill and remove all margin from it */
+    flex-grow: 2;
+    margin: 0;
+}
+.tab.chat .conversation-list .friend-finder button {
+    /* Remove all margin around the button */
+    margin: 0;
+}
+.tab.chat .conversation-list .friend-finder button img {
+    width: 20px;
+
+    /* Dirty hack to make the button smaller */
+    margin: -2px;
+}
+
+/* Chat Tab -- Chat View */
+.tab.chat .chat-view {
+    /* Grow to fill whole tab */
+    flex-grow: 2;
+
+    /* Make chat messages fill the tab horizontally */
+    display: flex;
+    flex-direction: column;
+}
+.tab.chat .chat-view .header {
+    background: var(--background-secondary-color);
+    display: flex;
+
+    /* Horizontal layout and center vertically */
+    align-items: center;
+    padding: 7px 15px;
+    gap: 10px;
+
+    /* Border on the bottom */
+    border-bottom: 1px solid var(--border-color);
+}
+.tab.chat .chat-view .header .avatar {
+    /* Modify existing .avatar to be smaller */
+    width: 35px;
+    height: 35px;
+}
+.tab.chat .chat-view .header .avatar img {
+    /* Modify existing .avatar to be smaller */
+    width: 32px;
+    height: 32px;
+    margin-top: 6px;
+    margin-left: 2px;
+}
+.tab.chat .chat-view .body {
+    flex-grow: 1;
+    overflow: scroll;
+}
+.tab.chat .chat-view .opening {
+    /* "This is the beginning of your conversation" message */
+    padding: 13px;
+    line-height: 1.4;
+}
+.tab.chat .chat-view .opening img {
+    width: 28px;
+}
+.tab.chat .chat-view .message {
+    padding: 13px;
+    line-height: 1.2;
+    
+    /* Layout horizontally and center vertically */
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    gap: 10px;
+
+    /* Border on the bottom */
+    border-bottom: 1px solid var(--border-color);
+}
+.tab.chat .chat-view .message:hover {
+    /* Special color when hovering over message */
+    background-color: var(--background-secondary-color);
+}
+.tab.chat .chat-view .footer {
+    background: var(--background-secondary-color);
+    
+    /* Layout horizontally and center vertically */
+    display: flex;
+    align-items: center;
+    padding: 12px 15px;
+    gap: 5px;
+
+    /* Border at the top */
+    border-top: 1px solid var(--border-color);
+}
+.tab.chat .chat-view .footer form,
+.tab.chat .chat-view .footer input {
+    /* Make message input field grow to fill space */
+    flex-grow: 2;
+    margin: 0;
+}
+.tab.chat .chat-view .footer button img {
+    width: 17px;
+
+    /* Dirty hack to make button appear smaller */
+    margin: -1px;
+}
+.tab.chat .chat-view.empty {
+    /* Special message when no conversation is selected */
+    display: flex;
+    flex-grow: 2;
+    justify-content: center;
+    align-items: center;
+}
+
+/* Info Tab */
+.tab.info {
+    flex-direction: column;
+}
+.tab.info .body,
+.tab.info .head {
+    padding: 0 15px;
+    margin-top: 10px;
+}

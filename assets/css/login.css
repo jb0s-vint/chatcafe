@@ -1,0 +1,15 @@
+body {
+    /* Cafe background */
+    background-image: url('../img/login-background.png');
+    background-position: center;
+    background-size: cover;
+    
+    /* Flexbox modal container */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.modal.login {
+    width: 550px;
+}
