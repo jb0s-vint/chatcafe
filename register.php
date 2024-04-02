@@ -8,37 +8,70 @@ $username = "";
 $email = "";
 
 /**
- * Handles login POST requests
+ * Handles register POST requests
  */
-if ($_SERVER["REQUEST_METHOD"] == "POST") {    
+if ($_SERVER["REQUEST_METHOD"] == "POST") 
+{    
     $errored = false;
 
     // Ensure that email is not empty
-    if(empty($_POST["text"])) {
+    if(empty($_POST["text"])) 
+    {
         $username_err = "You must enter a username.";
         $errored = true;
     }
 
+    // Ensure that username doesn't exceed length limit
+    if(strlen($_POST["text"]) > 25)
+    {
+        $username_err = "Username cannot exceed 25 characters";
+        $errored = true;
+    }
+
     // Ensure that email is not empty
-    if(empty($_POST["email"])) {
+    if(empty($_POST["email"])) 
+    {
         $email_err = "You must enter an email address.";
         $errored = true;
     }
 
+    // Ensure that email doesn't exceed length limit
+    if(strlen($_POST["email"]) > 50)
+    {
+        $email_err = "Email cannot exceed 50 characters";
+        $errored = true;
+    }
+
     // Ensure that password is not empty
-    if(empty($_POST["password"])) {
+    if(empty($_POST["password"])) 
+    {
         $password_err = "You must enter a password.";
         $errored = true;
     }
 
-    // Did an error occur?
-    if($errored) {
+    // Ensure that no user with this email address already exists
+    if(get_user_by_email($_POST["email"]))
+    {
+        $email_err = "An account with this email already exists";
+        $errored = true;
+    }
 
+    // Ensure that no user with this username already exists
+    if(get_user_by_username($_POST["text"]))
+    {
+        $username_err = "An account with this username already exists";
+        $errored = true;
+    }
+
+    // Did an error occur?
+    if($errored) 
+    {
         // Remember what email and username the user inputted
-        $username = $_POST["username"];
+        $username = $_POST["text"];
         $email = $_POST["email"];
     }
-    else {
+    else 
+    {
         // All clear, create the user
         create_user($_POST["email"], $_POST["text"], $_POST["password"]);
 

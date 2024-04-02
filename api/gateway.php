@@ -128,6 +128,13 @@ class Gateway implements MessageComponentInterface
             return;
         }
 
+        // Ensure that the message does not exceed the maximum length (255)
+        if(strlen($payload->content) > 255)
+        {
+            $this->send_modal($from, "Your message is too long! (Max 255 characters)");
+            return;
+        }
+
         // Create Message and Save To Database
         $is_reply = $relationship['recipient'] == $from->user['id'];
         create_message($relationship['id'], $is_reply, $payload->content);
