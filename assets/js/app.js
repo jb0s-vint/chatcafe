@@ -44,10 +44,9 @@ window.chatcafe = {
 
             // Avatar
             const avatar = document.createElement("div");
-            const icon = document.createElement("i");
+            const icon = document.createElement("img");
+            icon.src = "assets/img/user-solid.svg";
             avatar.classList.add("avatar");
-            icon.classList.add("fa-solid");
-            icon.classList.add("fa-user");
             avatar.appendChild(icon);
             div.appendChild(avatar);
 
@@ -84,10 +83,9 @@ window.chatcafe = {
 
             // Avatar
             const avatar = document.createElement("div");
-            const icon = document.createElement("i");
+            const icon = document.createElement("img");
+            icon.src = "assets/img/user-solid.svg";
             avatar.classList.add("avatar");
-            icon.classList.add("fa-solid");
-            icon.classList.add("fa-user");
             avatar.appendChild(icon);
             div.appendChild(avatar);
 
