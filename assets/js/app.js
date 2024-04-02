@@ -72,7 +72,6 @@ window.chatcafe = {
         // Adds a new conversation to the conversation list.
         addConversation: function(relationship) {
             const body = document.querySelector('.chat .conversation-list');
-            const friendFinder = document.querySelector('.chat .conversation-list .friend-finder');
 
             // Container
             const div = document.createElement("div");
@@ -101,7 +100,7 @@ window.chatcafe = {
             div.appendChild(usernameAndMessage);
 
             // Add fully constructed conversation switcher to view
-            friendFinder.after(div);
+            body.appendChild(div);
         },
         
         // Sends a message to the currently active conversation.
