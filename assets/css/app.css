@@ -245,9 +245,12 @@ body {
 /* Info Tab */
 .tab.info {
     flex-direction: column;
+    overflow: scroll;
 }
-.tab.info .body,
-.tab.info .head {
-    padding: 0 15px;
-    margin-top: 10px;
+.tab.info .section {
+    margin: 10px 25px 0 25px;
+}
+.tab.info .section img {
+    margin-top: 15px;
+    border-radius: 7px;
 }

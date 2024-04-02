@@ -69,15 +69,22 @@ if(isset($_GET["c"]))
 
             <!-- Info Tab -->
             <div class="tab info">
-                <div class="head">
+                <div class="section modal">
                     <h1>ChatCafe by Jake v/d Bos</h1>
                     <h3>Dit gedeelte is in het Nederlands geschreven voor makkelijkheid.</h3>
                 </div>
-                <ul class="body">
+                <ul class="section modal">
                     <li>Dit is een hele simpele chat app gemaakt helemaal door Jake in PHP met MySQL voor database.</li>
-                    <li>Ik had gehoopt dat ik dit zou kunnen behalen zonder JavaScript, maar helaas moest ik een klein beetje JavaScript gebruiken op de client omdat PHP uiteraard server-side is.</li>
-                    <li>Dit project bleek veel meer werk te zijn dan ik had gedacht, maar goed. Het is gelukt.</li>
-                    <li>Dit project bleek veel meer werk te zijn dan ik had gedacht, maar goed. Het is gelukt.</li>
+                    <li>Ik had gehoopt dat ik dit zou kunnen behalen zonder JavaScript, maar helaas moest ik een klein beetje JavaScript gebruiken op de client gesynchroniseerd te houden met andere chatters.</li>
+                    <li>De WebSocket die hiervoor wordt gebruikt is uiteraard wel geschreven in PHP.</li>
+                </ul>
+                <ul class="section modal">
+                    <li>De database doet aan de eisen die mij zijn gesteld: een meer-op-meer tabel relatie.</li>
+                    <li>Elk bericht dat wordt opgeslagen wijst naar een "relationship", die wijst naar twee "users".</li>
+                    <img src="assets/img/database-graph.png" alt="Database graph"/>
+                </ul>
+                <ul class="section modal">
+                    <li>Dit project bleek veel meer werk te zijn dan ik had gedacht, maar het is mij mooi gelukt.</li>
                 </ul>
             </div>
         </div>
