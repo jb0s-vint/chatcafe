@@ -18,7 +18,7 @@ CREATE TABLE IF NOT EXISTS sessions (
     token VARCHAR(36) PRIMARY KEY,
     user_id VARCHAR(36) NOT NULL,
 
-    # Define foreign keys
+    -- Define foreign keys
     FOREIGN KEY (user_id) REFERENCES users(id)
 );
 
@@ -30,7 +30,7 @@ CREATE TABLE IF NOT EXISTS relationships (
     friends BOOLEAN NOT NULL,
     blocked BOOLEAN NOT NULL,
 
-    # Define foreign keys
+    -- Define foreign keys
     FOREIGN KEY (sender) REFERENCES users(id),
     FOREIGN KEY (recipient) REFERENCES users(id)
 );
@@ -43,6 +43,6 @@ CREATE TABLE IF NOT EXISTS messages (
     is_reply BOOLEAN NOT NULL,
     timestamp MEDIUMTEXT NOT NULL,
 
-    # Define foreign keys
+    -- Define foreign keys
     FOREIGN KEY (relationship) REFERENCES relationships(id)
 );
