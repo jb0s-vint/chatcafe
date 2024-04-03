@@ -1,11 +1,11 @@
-# ChatCafe Database Setup script
-# You can run this only once.
+-- ChatCafe Database Setup script
+-- You can run this only once.
 
-# Create Database
+-- Create Database
 CREATE DATABASE IF NOT EXISTS chatcafe;
 USE chatcafe;
 
-# Create users table
+-- Create users table
 CREATE TABLE IF NOT EXISTS users (
     id VARCHAR(36) PRIMARY KEY,
     username VARCHAR(25) NOT NULL,
@@ -13,7 +13,7 @@ CREATE TABLE IF NOT EXISTS users (
     password VARCHAR(60) NOT NULL
 );
 
-# Create sessions table
+-- Create sessions table
 CREATE TABLE IF NOT EXISTS sessions (
     token VARCHAR(36) PRIMARY KEY,
     user_id VARCHAR(36) NOT NULL,
@@ -22,7 +22,7 @@ CREATE TABLE IF NOT EXISTS sessions (
     FOREIGN KEY (user_id) REFERENCES users(id)
 );
 
-# Create relationships table
+-- Create relationships table
 CREATE TABLE IF NOT EXISTS relationships (
     id VARCHAR(36) PRIMARY KEY,
     sender VARCHAR(36) NOT NULL,
@@ -35,7 +35,7 @@ CREATE TABLE IF NOT EXISTS relationships (
     FOREIGN KEY (recipient) REFERENCES users(id)
 );
 
-# Create messages table
+-- Create messages table
 CREATE TABLE IF NOT EXISTS messages (
     id VARCHAR(36) PRIMARY KEY,
     content VARCHAR(255) NOT NULL,
